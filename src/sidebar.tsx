@@ -20,7 +20,7 @@ export default function Sidebar() {
         }} />
 
         <h3>Step 2: Preview image</h3>
-        {imageUrl ? <img alt="Image preview" ref={imgRef} src={imageUrl} /> : "Image not loaded!"}
+        {imageUrl ? <img alt="" ref={imgRef} src={imageUrl} /> : "Image not loaded!"}
 
         <h3>Step 3: Specify</h3>
         Columns: <input type="number" value={columns} onChange={event => setColumns(event.target.value)} /><br/>
