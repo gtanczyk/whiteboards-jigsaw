@@ -20,7 +20,7 @@ export default function Sidebar() {
         }} />
 
         <h3>Step 2: Preview image</h3>
-        {imageUrl ? <img ref={imgRef} src={imageUrl} /> : "Image not loaded!"}
+        {imageUrl ? <img alt="Image preview" ref={imgRef} src={imageUrl} /> : "Image not loaded!"}
 
         <h3>Step 3: Specify</h3>
         Columns: <input type="number" value={columns} onChange={event => setColumns(event.target.value)} /><br/>
@@ -35,8 +35,8 @@ export default function Sidebar() {
         const tiles = Image.getTiles();
         const viewport = await getCurrentViewport();
         createCards(tiles.map((tile) => ({
-            x: viewport.location[0],
-            y: viewport.location[1],
+            x: viewport.location[0] + Math.random() * (tileWidth / viewport.zoom * Math.random() * columns),
+            y: viewport.location[1] + Math.random() * (tileHeight / viewport.zoom * Math.random() * rows),
             width: tileWidth / viewport.zoom,
             height: tileHeight / viewport.zoom,
             props: {
